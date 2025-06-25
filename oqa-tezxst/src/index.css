@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+body{
+    margin: 0;
+    height: 100vh;
+    background: #0f0f0f
+}
+
+.navbar-links p{
+    /* @apply cursor-pointer bg-clip-text text-transparent bg-gradient-to-r from-[#c3bebe] via-[#C3C2C2] to-[#FFFFFF] hover:text-white ; */
+    @apply cursor-pointer text-gray-300 hover:text-white
+}
+
+.navbar-links span{
+    @apply absolute left-0 -bottom-1 h-[2px] w-0 bg-white transition-all duration-300 hover:w-full
+}
+
+
+.outlined-text {
+    color: transparent;
+    -webkit-text-stroke: 1px white; /* or any stroke color */
+  }
