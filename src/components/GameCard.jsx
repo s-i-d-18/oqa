@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Genres from './Genres.jsx';
+import { Link } from 'react-router-dom';
 
 function GameCard( {displayGame} ){
 
@@ -14,11 +15,13 @@ function GameCard( {displayGame} ){
 
     return(
         <> 
-
+        
         {
         
-        showGame.length &&
+        // showGame.length &&
             showGame.map((p,i) => (
+
+            <Link to={`/game/${p.slug}`}>
                 <div className="flex flex-col mt-10">
                 <img src={p?.background_image} alt="" className="rounded-tl-4xl rounded-tr-4xl "/>
 
@@ -69,11 +72,14 @@ function GameCard( {displayGame} ){
                     
                 </div>
             </div>
+            </Link>
             ))
             
         
             
             }
+        
+        
         </>
     )
 }

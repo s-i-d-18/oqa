@@ -8,6 +8,7 @@ import Description from "../components/GamePage/Description";
 import GameStores from "../components/GamePage/GameStores";
 import GeneralInfo from "../components/GamePage/GeneralInfo";
 import GameCard from "../components/GameCard";
+import { Link } from "react-router-dom";
 
 
 
@@ -41,6 +42,12 @@ function GamePage(){
 
     const [showSeriesGames, setShowSeriesGames] = useState(false);
 
+    const [devSlugs, setDevSlugs] = useState([]);
+    const [pubSlugs, setPubSlugs] = useState([]);
+
+    const [devName, setDevName] = useState([]);
+    const [pubName, setPubName] = useState([]);
+
 
     useEffect(() => {
 
@@ -58,6 +65,7 @@ function GamePage(){
                     const getseries = await fetch(`${baseurl}games/${slug}/game-series?key=${apikey}`);
                     const dataseries = await getseries.json();
 
+
                     setScreenshots((prev, index) =>{
                         const copy = [...prev];
                         copy[index] = data2.results[index];
@@ -72,6 +80,10 @@ function GamePage(){
                     // console.log(dataseries.results);
                     setGameSeries(dataseries.results);
                     // console.log(gameSeries)
+
+                    // setShowStudios(datastudio)
+                    // console.log(data);
+
 
 
                     // const newseries = dataseries?.[0]?.slug || [];
@@ -128,6 +140,19 @@ useEffect(() => {
   const skip = game.ratings?.[3]?.count || "N/A";
 
   const description = game.description;
+
+                    const devslugs = game?.developers?.map((d, i) => d.slug);
+                    const pubslugs = game?.publishers?.map((p, i) => p.slug);
+                    const devnames = game?.developers?.map((d, i) => d.name);
+                    const pubnames = game?.publishers?.map((p, i) => p.name);
+                    
+                    if(devslugs) setDevSlugs(devslugs);
+                    if(pubslugs) setPubSlugs(pubslugs);
+
+                    if(devnames) setDevName(devnames);
+                    if(pubnames) setPubName(pubnames);
+
+
 
 //   DATA FOR THE DETAILS ↓
 // console.log(game);   
@@ -333,38 +358,59 @@ useEffect(() => {
 
                 {
                     showSeriesGames ? 
-                        <button className="text-4xl text-center text-[#a3a3a3] mt-10  cursor-pointer font-bold border-none p-5 ml-2 mr-2 rounded-4xl" onClick={() =>setShowSeriesGames(!showSeriesGames)}>Hide games part of this series</button>
+                        <button className="text-4xl text-center text-[#a3a3a3] mt-10  cursor-pointer font-bold border-none p-5 ml-2 mr-2 rounded-4xl underline" onClick={() =>setShowSeriesGames(!showSeriesGames)}>Hide games part of this series</button>
                         
                         :
 
-                        <button className="text-4xl text-center text-[#a3a3a3] mt-10  cursor-pointer font-bold border-none p-5 ml-2 mr-2 rounded-4xl" onClick={() =>setShowSeriesGames(!showSeriesGames)}>Show games part of this series</button>
+                        <button className="text-4xl text-center text-[#a3a3a3] mt-10  cursor-pointer font-bold border-none p-5 ml-2 mr-2 rounded-4xl underline" onClick={() =>setShowSeriesGames(!showSeriesGames)}>Show games part of this series</button>
                 }
 
-
-                
                 {
                     showSeriesGames && 
-                        gameSeries ?
-
-                                    <p className="text-[#b6b6b6] text-center mt-5 text-2xl font-bold ml-15 mr-15 bg-[#313131] rounded-2xl p-3">This game isn't a part of a series...Yet</p>
-
+                    (gameSeries.length ?
+                            <div className="mt-10 ml-5 mr-5">
+                                <GameCard displayGame={gameSeries} />
+                            </div> 
                             :
-                                <div className="mt-10 ml-5 mr-5">
-                                    <GameCard displayGame={gameSeries} />
-                                </div>
+                            <p className="text-[#b6b6b6] text-center mt-5 text-2xl font-bold ml-15 mr-15 bg-[#313131] rounded-2xl p-3">This game isn't a part of a series...Yet</p>                                                   
+
+                            )
+                        
                 }
             
                 {/* MORE GAMES FROM THE STUDIOS ↓ */}
-                
+                <div className="mt-10 ml-5 mr-5 bg-[#1d1d1d]   p-10 rounded-4xl border-1 border-[#595858]">
+                    <p className="text-center text-5xl font-black text-white mb-5">More Games from</p>
                     
+                    <div className="px-10 flex flex-wrap gap-10 mt-10 justify-center">
+                    
+                    {
+                        devName.map((d, i) => (
+                            <Link to={`/developers/${devSlugs[i]}`}>
+                                <div className="bg-[#4c4c4c] gap-10 px-10 py-1  rounded-2xl text-3xl font-semibold text-white text-center border-2 border-[#212121]">
+                                    {d}
+                                </div>
+                            </Link>
+                            
+                        ))
+                    }
+                    {
+                        pubName.map((d, i) => (
+                            <Link to={`/developers/${pubSlugs[i]}`}>
 
-                <div className="h-100000">
-                    ds
-                </div>
-            
+                            <div className="bg-[#4c4c4c] gap-10 px-10 py-1  rounded-2xl text-3xl font-semibold text-white text-center border-2 border-[#212121]">
+                                {d}
+                            </div>
+                            </Link>
 
-                
-            
+                        ))
+                    }        
+                    </div>
+                </div>   
+
+
+                {/* EMPTY DIV TO GIVE HEIGHT */}
+                <div className="bg-transparent h-10"></div>                
         </>
     )
 }
