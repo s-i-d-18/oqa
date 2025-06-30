@@ -16,6 +16,9 @@ function Home(){
     const currentYear = new Date().getFullYear();
     const dateRange = `${currentYear}-01-01,${currentYear}-12-31`;
 
+    const [sortOption, setSortOption] = useState('popularity');
+
+
     useEffect(() =>{
         const fetchpopularGames = async ()=>{
 
@@ -100,9 +103,32 @@ function Home(){
 
     return(
         <>
+            {/* SLIDERS ↓ */}
             <HomePageSlider games={games} desc={gameDesc} genres={gameGenre} playtime={playtime} tags={tags} displaytext={"Trending"}/>
             
-                
+            {/* BROWSE GAMES ↓ */}
+            <p className="mt-15 text-4xl text-white ml-5 font-bold">BROWSE GAMES</p>
+
+            {/* BROWSE GAMES OPTION MENU */}
+            <div className="mt-10 ml-5 mr-5 bg-[#1f1f1f] flex items-center justify-evenly rounded-3xl py-5 border-1 border-[#c4c4c4] focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <p className="text-[#949494] text-3xl font-semibold">Sort by: </p>
+                <select
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+                className="p-2 rounded bg-[#1f1f1f] text-[#c5c5c5]  border-none text-3xl font-semibold"
+                >
+                        <option value="popularity">Popularity</option>
+                        <option value="rating">Rating</option>
+                        <option value="released">Release Date</option>
+                        <option value="name">Name</option>
+                </select>
+                {/* {console.log(sortOption)} */}
+
+            </div>
+
+
+            {/* for height */}
+            <div className="h-1000"></div>
         </>
     )
 }

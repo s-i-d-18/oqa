@@ -14,10 +14,12 @@ function Navbar(){
         <nav className="w-[80%] bg-transparent shadow px-0 py-4  z-999 mx-auto backdrop-blur-sm rounded-2xl fixed  ml-[50%] transform -translate-x-1/2">
   <div className="max-w-[100%] mx-auto flex items-center justify-between ">
     
-
-    <div className="text-2xl font-bold text-white cursor-pointer ml-5">
+      <Link to="/home">
+          <div className="text-2xl font-bold text-white cursor-pointer ml-5">
       OQA
     </div>
+      </Link>
+
 
 
     <div className=" navbar-links hidden items-center justify-center md:flex space-x-12" >

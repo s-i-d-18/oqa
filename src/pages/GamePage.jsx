@@ -297,7 +297,7 @@ useEffect(() => {
 
 
 
-            {/* SCREENSHOT GALLEY */}
+            {/* SCREENSHOT GALLERY */}
             </div>
                 {/* <p className="text-white text-2xl">hwekfhd</p> */}
                 <div className="">
@@ -323,6 +323,7 @@ useEffect(() => {
                         </p>
                     </div>
                     </div>
+                    
                     {/* THIS IS THE RATING CARD */}
                     <div className="mt-10">
                         <RatingsInfo display={rateDisplay} show={rateShow} />
@@ -368,9 +369,15 @@ useEffect(() => {
                 {
                     showSeriesGames && 
                     (gameSeries.length ?
-                            <div className="mt-10 ml-5 mr-5">
-                                <GameCard displayGame={gameSeries} />
-                            </div> 
+                            // <div className="mt-10 ml-5 mr-5">
+                            //     <GameCard displayGame={gameSeries} />
+                            // </div> 
+                            
+                            gameSeries.map((game) => (
+                                <div className="columns-1 lg:columns-4 gap-10 ml-5 mr-5">
+                                    <GameCard displayGame={game} />
+                                </div>
+                            ))
                             :
                             <p className="text-[#b6b6b6] text-center mt-5 text-2xl font-bold ml-15 mr-15 bg-[#313131] rounded-2xl p-3">This game isn't a part of a series...Yet</p>                                                   
 
@@ -396,7 +403,7 @@ useEffect(() => {
                     }
                     {
                         pubName.map((d, i) => (
-                            <Link to={`/developers/${pubSlugs[i]}`}>
+                            <Link to={`/publishers/${pubSlugs[i]}`}>
 
                             <div className="bg-[#4c4c4c] gap-10 px-10 py-1  rounded-2xl text-3xl font-semibold text-white text-center border-2 border-[#212121]">
                                 {d}
