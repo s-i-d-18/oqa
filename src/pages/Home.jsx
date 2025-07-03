@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import HomePageSlider from "../components/HomePageSlider";
 import GameCard from "../components/GameCard";
 import Subreddits from "../components/Subreddits";
