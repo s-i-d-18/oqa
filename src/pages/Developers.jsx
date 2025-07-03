@@ -37,7 +37,7 @@ function Developers(){
         }
 
         fetchStudios()
-    }, [number])
+    }, [number, slug])
 
     useEffect(() => {
         // if (gameData) console.log(gameData.length)
@@ -63,11 +63,11 @@ function Developers(){
                 </div>
 
                 {/* BUTTON TO SHOW MORE */}
-                    <div className="mt-5 flex justify-center">
+                    <div className="mt-5 flex justify-center ">
                     {
                         gameData.length - number == 0 &&
                         <button className="text-white bg-[#1d1d1d] text-4xl px-15 py-5 rounded-3xl text-center 
-                                            hover:bg-[#e1dede] hover:text-black transition-all border-1 border-[#595858]" onClick={() => setNumber(prev => prev + 10)}>
+                                            hover:bg-[#e1dede] hover:text-black transition-all border-1 border-[#595858] cursor-pointer " onClick={() => setNumber(prev => prev + 10)}>
                             View More
                         </button>
                     }

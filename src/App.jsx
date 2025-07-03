@@ -6,6 +6,7 @@ import GamePage from "./pages/GamePage";
 // import GamePageMax from "./pages/GamePageMax";
 import Developers from "./pages/Developers";
 import Publishers from "./pages/Publishers";
+import GameSearch from "./components/GameSearch";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/game/:slug" element={<GamePage />}/>        
                 <Route path="/developers/:slug" element={<Developers />}/>
                 <Route path="/publishers/:slug" element={<Publishers />}/>
+                <Route path="/search/:slug" element={<GameSearch />} />
             </Routes>
         </>
     )
