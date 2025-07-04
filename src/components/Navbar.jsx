@@ -70,7 +70,7 @@ function Navbar(){
       {       
         (searchToggle) && 
         <div className="flex gap-5 items-center">
-          <input type="text" onChange={(e) => setSearchValue(e.target.value)} className="bg-[#444444] rounded-md ml-5 text-white w-[80%]" onKeyDown={(e) => {
+          <input type="text" onChange={(e) => setSearchValue(e.target.value)} className="bg-[#444444] rounded-md ml-5 text-white w-[65%] lg:w-[80%]" onKeyDown={(e) => {
             if (e.key === "Enter"){
               navigate(`/search/${searchValue}`);
             }

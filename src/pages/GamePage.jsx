@@ -335,7 +335,7 @@ useEffect(() => {
                     </div>
                               
                                {/* GAME LINKS ↓ */}
-                    <div className="mt ml-5 mr-5 lg:w-fit lg:mt-30">
+                    <div className="mt-10 ml-5 mr-5 lg:w-fit lg:mt-30">
                         {
                             // stores &&
                              <GameStores stores={stores.results} />
