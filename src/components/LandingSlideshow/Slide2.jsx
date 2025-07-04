@@ -36,7 +36,7 @@ function Slide2(){
                                 w-[90%] lg:w-[70%]
                                 top-[50%] lg:top-[35%]
                                 left-1/2 lg:left-[65%]
-                                bg-gradient-to-b from-[#0f0f0f] to-[#0a0a0a] lg:bg-none
+                                bg-none
                                 
                                 p-5 rounded-2xl 
                                 '>

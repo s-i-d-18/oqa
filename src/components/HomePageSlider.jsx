@@ -64,7 +64,7 @@ function HomePageSlider({ games, desc, genres, playtime, tags, displaytext}){
 
     return(
         <>  
-            <div className="relative flex flex-col items-center justify-center w-full overflow-hidden">
+            <div className="relative flex flex-col items-center justify-center w-full overflow-hidden ">
                 <AnimatePresence custom={direction} mode="wait">
                     <motion.div
                     key={index}

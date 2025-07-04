@@ -59,7 +59,7 @@ function LandingPage(){
                 </AnimatePresence>
             
         </div>
-    <div className=" hidden lg:absolute top-250 lg:top-[45vh]  w-full lg:flex lg:justify-between ">
+    <div className="  absolute top-250 top-[45vh]  w-full flex justify-between ">
         <button
             className="z-10 bg-[#171717] px-4 py-2 rounded cursor-pointer text-white"
             onClick={prevSlide}>

@@ -28,7 +28,7 @@ function Navbar(){
     
       <Link to="/home">
           <div className="text-2xl font-bold text-white cursor-pointer ml-5">
-      OQA
+        <img src="/logo.png" alt=""  className="h-10 rounded-md"/>
     </div>
       </Link>
 

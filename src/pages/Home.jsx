@@ -283,7 +283,7 @@ function Home(){
 
                 {/* SUBREDDITS ↓ */}
                 {/* {console.log(redditGames)} */}
-                    <div className="columns-1 lg:columns-4 gap-5 mt-15 text-white">
+                    <div className="columns-1 lg:columns-4 gap-5 mt-15 text-white ml-5 mr-5">
                         {
                             redditGames.map((g, i) => 
                                 <div className="mb-4 break-inside-avoid">
