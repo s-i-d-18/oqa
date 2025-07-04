@@ -51,7 +51,7 @@ function Developers(){
                 <p className="text-white text-center font-black text-5xl">Games from {studioDetails.name}</p>
 
                 {/* GAME DISPLAY CARDS */}
-                <div className="columns-1 lg:columns-4 gap-10 mt-15  ">
+                <div className="columns-1 lg:columns-4 gap-10 mt-15  "> 
                     {  
                     gameData &&
                         gameData.map((game) => (

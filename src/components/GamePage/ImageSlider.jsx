@@ -50,14 +50,14 @@ function ImageSlider({ screenshots }){
 
 
 {/* IMAGE GALLERY WITH MOTION */}
-<div className="flex overflow-x-auto gap-4 mt-10 mx-5">
+<div className="flex overflow-x-auto gap-4 mt-10 mx-5 lg:w-100 lg:mr-20 scrollbar-hide">
   {images.map((img, i) => (
     <motion.img
       key={img}
       src={img}
       layoutId={img}
       onClick={() => setSelectedImage(img)}
-      className="w-[90%] object-cover rounded-2xl cursor-pointer"
+      className="w-[90%] object-cover rounded-2xl cursor-pointer lg:w-90"
     />
   ))}
 </div>

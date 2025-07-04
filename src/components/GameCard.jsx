@@ -82,7 +82,7 @@ function GameCard( {displayGame} ){
                 showGame &&
             
             <Link to={`/game/${showGame.slug}`}>
-                <div className="flex flex-wrap mt-10 max-w-100 hover:scale-[105%] transition-all ">
+                <div className="flex flex-wrap mt lg:w-[100%] hover:scale-[105%] transition-all ">
                     
                     <img src={showGame?.background_image} alt="" className=" w-full rounded-tl-4xl rounded-tr-4xl "/>
 
@@ -90,18 +90,18 @@ function GameCard( {displayGame} ){
                     <div className="flex gap-3">
                         {
                             showGame?.parent_platforms?.map((p, i) => (
-                                <img src={`/parent_platforms/${p?.platform?.name}.png`} alt="" className="h-5 rounded-full"/>
+                                <img src={`/parent_platforms/${p?.platform?.name}.png`} alt="" className="h-4 rounded-full "/>
                             ))
                         }
                     </div>
                     <div>
-                        <p className="text-white text-3xl font-bold">{showGame?.name}</p>
+                        <p className="text-white text-xl font-bold">{showGame?.name}</p>
                     </div>
-                    <div className="h-3 w-[40%] bg-gradient-to-r from-[#181818] to-[#474747] ml-3  rounded-full">
+                    <div className="h-1 w-[40%] bg-gradient-to-r from-[#181818] to-[#474747] ml-3  rounded-full">
                         
                     </div>
 
-                    <div className="flex gap-3 flex-wrap">
+                    <div className="flex gap-3 flex-wrap ">
                         {showGame.genres &&
                             <Genres text={showGame?.genres[0]?.name} />
                         }
@@ -112,18 +112,20 @@ function GameCard( {displayGame} ){
                             <Genres text={showGame?.tags[Math.floor(Math.random() * (showGame.tags.length )) + 1]?.name} />
                         }
                     </div>
-                    <div className='flex flex-wrap  gap-5 text-white'>
-                        <div className='bg-[#505050] px-2 pb -1 rounded-md'>
+
+
+                    <div className='flex flex-wrap  gap-5 text-white '>
+                        <div className='bg-[#505050] px-2 pb -1 rounded-md lg:text-sm'>
                             {
                                 (showGame.added ? showGame.added : "N/A") + " Added"
                             }
                         </div>
-                        <div className='bg-[#505050] px-2 pb-1 rounded-md '>
+                        <div className='bg-[#505050] px-2 pb-1 rounded-md lg:text-sm'>
                             {
                                 (showGame.added_by_status ? showGame.added_by_status.playing : "N/A") + " playing"
                             }
                         </div>
-                        <div className='bg-[#505050] px-2 pb- rounded-md'>
+                        <div className='bg-[#505050] px-2 pb- rounded-md lg:text-sm'>
                             {
                                 (showGame.rating ? showGame.rating : "N/A") + "/5.00"
                             }

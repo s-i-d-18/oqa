@@ -149,7 +149,7 @@ function Home(){
     })
 }
     }, [display])
-
+ 
 
     // console.log(redditGames)
 
@@ -162,42 +162,49 @@ function Home(){
             <p className="mt-15 text-4xl text-white ml-5 font-bold">BROWSE GAMES</p>
 
             {/* BROWSE GAMES OPTION MENU */}
-            <div className="mt-10 ml-5 mr-5 bg-[#1f1f1f] flex items-center justify-between rounded-xl py-5 border-none px-10 cursor-pointer" onClick={() =>{
+            <div className="lg:flex lg:items-center mt-10 lg:mt-10">
+
+
+            <div className=" ml-5 mr-5 bg-[#343434] flex items-center justify-between rounded-xl py-5 border-none px-10 cursor-pointer lg:w-fit lg:px-5 lg:py-3 lg:flex-row lg:gap-15 " onClick={() =>{
                 setClicked(!clicked);
             }}>
-                <p className="text-[#949494] text-3xl font-semibold">Sort by: </p>
-                <div className="text-[#949494] text-4xl mb-1 ">
+                <p className="text-[#949494] text-3xl font-semibold lg:text-xl">Sort by: </p>
+                <div className="text-[#949494] text-4xl mb-1 lg:text-2xl">
                 {sortings[sortOption] } 
                 {`>`}
                 </div>
 
-            </div>
 
-            {
-                // clicked &&
-                // <div className="bg-[#1f1f1f]  ml-[45%] mr-5 rounded-xl relative flex flex-col items-end gap-3 py-5 px-5 w-[50%] transition-all duration-300 ease-in-out" >
-                <div className={`bg-[#1f1f1f]  ml-[50%] mr-5 rounded-xl relative flex flex-col items-end gap-3 py-5 px-5 w-[45%] transition-all duration-100 ease-in-out ${clicked ? "opacity-100 scale-100 " : "opacity-0 scale-95 pointer-events-none hidden"} absolute z-100`}>
-                    <div className="text-white right-0 text-2xl bg-[#5d5d5d] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center" onClick={() => setSortOption(0)}>
+                
+
+            </div>
+                <div className={`bg-[#1f1f1f]  ml-[50%] mr-5 rounded-xl relative flex flex-col items-end gap-3 py-5 px-5 w-[45%] transition-all duration-100 ease-in-out ${clicked ? "opacity-100 scale-100 " : "opacity-0 scale-95 pointer-events-none hidden"} absolute z-100 lg:w-fit lg:ml-5 lg:flex-row lg:px-0 lg:py-0 lg:bg-transparent`}>
+                    <div className="text-white right-0 text-2xl bg-[#343434] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center lg:text-xl lg:px-5 lg:py-3 lg:rounded-xl" onClick={() => setSortOption(0)}>
                         {sortings[0]}
                     </div>
-                    <div className="text-white right-0 text-2xl bg-[#5d5d5d] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center" onClick={() => setSortOption(1)}>
+                    <div className="text-white right-0 text-2xl bg-[#343434] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center lg:text-xl lg:px-5 lg:py-3 lg:rounded-xl" onClick={() => setSortOption(1)}>
                         {sortings[1]}
                     </div>
-                     <div className="text-white right-0 text-2xl bg-[#5d5d5d] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center" onClick={() => setSortOption(2)}>
+                     <div className="text-white right-0 text-2xl bg-[#343434] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center lg:text-xl lg:px-5 lg:py-3 lg:rounded-xl " onClick={() => setSortOption(2)}>
                         {sortings[2]}
                     </div>
-                     <div className="text-white right-0 text-2xl bg-[#5d5d5d] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center" onClick={() => setSortOption(3)}>
+                     <div className="text-white right-0 text-2xl bg-[#343434] p-5 rounded-full hover:bg-white hover:text-black transition-all ease-in-out cursor-pointer w-[100%] text-center lg:text-xl lg:px-5 lg:py-3 lg:rounded-xl" onClick={() => setSortOption(3)}>
                         {sortings[3]}
                     </div>
  
                 </div>
+            </div>
+            {
+                // clicked &&
+                // <div className="bg-[#1f1f1f]  ml-[45%] mr-5 rounded-xl relative flex flex-col items-end gap-3 py-5 px-5 w-[50%] transition-all duration-300 ease-in-out" >
+
             }
 
             {/* GAMECARDS DISPLAY */}
-            <div className="columns-1 lg:columns-4 gap-10 mt-15 relative z-0">
+            <div className="columns-1 lg:columns-4 gap-10 mt-15 relative z-0 ml-5 mr-5">
                 {
                     display.map((g) => (
-                        <div className="mb-4 break-inside-avoid ml-5 mr-5" key={g.id}>
+                        <div className="mb-10 break-inside-avoid " key={g.id}>
                             <GameCard displayGame={g} />
                         </div>
                     ))
@@ -211,7 +218,7 @@ function Home(){
                 {
                     (display.length - number == 0) &&
                     <button className="text-white bg-[#1d1d1d] text-4xl px-15 py-5 rounded-3xl text-center 
-                                        hover:bg-[#e1dede] hover:text-black transition-all border-1 border-[#595858] cursor-pointer" onClick={() => setNumber(prev => prev + 10)}>
+                                        hover:bg-[#e1dede] hover:text-black transition-all border-1 border-[#595858] cursor-pointer lg:text-2xl" onClick={() => setNumber(prev => prev + 10)}>
                         View More
                     </button>
                 }
@@ -276,11 +283,15 @@ function Home(){
 
                 {/* SUBREDDITS ↓ */}
                 {/* {console.log(redditGames)} */}
-                    <div className="mt- ml-5 mr-5">
+                    <div className="columns-1 lg:columns-4 gap-5 mt-15 text-white">
                         {
-                            redditGames.map((g, i) => (
-                                <Subreddits game={g} name={redditGameNames[i]}/>
-                            ))
+                            redditGames.map((g, i) => 
+                                <div className="mb-4 break-inside-avoid">
+                                    <Subreddits game={g} name={redditGameNames[i]}/>
+                                    {/* {console.log(redditGameNames)} */}
+                                </div>
+                                
+                            )
                         }
                     </div>
 

@@ -52,9 +52,9 @@ function Description({ description }){
                         (
                             displayText.length === newDescription.length ? 
                             
-                            <button className="text-white bg-transparent border-none font-semibold underline" onClick={hideDesc}>I've read enough</button>
+                            <button className="text-white bg-transparent border-none font-semibold underline cursor-pointer" onClick={hideDesc} >I've read enough</button>
                             :
-                            <button className="text-white bg-transparent border-none font-semibold underline" onClick={showMore}>Read More</button>
+                            <button className="text-white bg-transparent border-none font-semibold underline cursor-pointer" onClick={showMore}>Read More</button>
                         )
                         :
                         <p></p>

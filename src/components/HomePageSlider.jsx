@@ -94,24 +94,23 @@ function HomePageSlider({ games, desc, genres, playtime, tags, displaytext}){
                 <div className="mt-10 flex flex-col items-center justify-center ">
                 {games.length ? 
                     <div>
-                        <div className="flex flex-col justify-center items-center ">
-                            <img src={games[index].background_image} alt="" className="rounded-3xl max-w-[95%] max-h-70 lg:max-h-[100%]" /> 
-                            
-                                <p className="text-white text-5xl my-6 ml-0 text-center">{games[index].name}</p>
-                        
-                            {
-                                desc.length ? 
-                                <p className="text-white w-[95%] ml-1">{truncate(stripHTML(desc[index]))}
+                        <div className="flex flex-col justify-center items-center lg:flex-row ">
+                            <img src={games[index].background_image} alt="" className="rounded-3xl max-w-[95%] max-h-70 lg:max-h-[70%] lg:h-100 lg:mx-10" /> 
                                 
-                                {
-                                    !(truncate() == "") ? <strong> Show More</strong>: ""
-                                }
-                                </p>
-                                : <p></p>
-                            }
-                            
-                        </div>
-                        {
+                                <div className="lg:flex lg:flex-col">
+                                    <p className="text-white text-5xl my-6 ml-0 text-center">{games[index].name}</p>
+                                
+                                    {
+                                        desc.length ? 
+                                        <p className="text-white w-[95%] ml-5 mr-5">{truncate(stripHTML(desc[index]))}
+                                        
+                                        {
+                                            !(truncate() == "") ? <strong> Show More</strong>: ""
+                                        }
+                                        </p>
+                                        : <p></p>
+                                    }
+                                                    {
                         desc.length >1 && 
                             <div>
                                 <div className="mt-5 ml-2 flex flex-wrap gap-3">
@@ -136,6 +135,10 @@ function HomePageSlider({ games, desc, genres, playtime, tags, displaytext}){
                             </div>
                             
                         }
+                                </div>
+                                
+                        </div>
+
                         
                     </div>
                     

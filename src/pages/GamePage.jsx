@@ -258,63 +258,57 @@ useEffect(() => {
 
     return(
         <>  
-
-            
-
             
              {/* DOO NOT TOUCH -> THIS IS THE BACKGROUND BLUR DIV ↓ */}
             <div className="relative w-[100%] z-10 top-30">
                 <img
                     src={game.background_image}
                     alt=""
-                    className=" absolute inset-0 w-full h-100 object-cover opacity-40"
+                    className=" absolute inset-0 w-full h-100 object-cover opacity-40 "
                 />
                 
             </div>
 
 
-            <div className="sticky bg-gradient-to-b from-transparent via-[#0f0f0f] to-[#0f0f0f]  w-full z-10 flex flex-col items-center justify-end">
-                <p className="text-5xl text-white font-bold text-center mt-40  ">{game.name}</p>
+            <div className="sticky bg-gradient-to-b from-transparent via-[#0f0f0f] to-[#0f0f0f]  w-full z-10 flex flex-col items-center justify-end ">
+                <p className="text-5xl text-white font-bold text-center mt-40 lg:text-7xl lg:mb-5">{game.name}</p>
+                <div className="lg:flex lg:flex-row lg:items-center ">
+                    <div className="">
+                        <div className="flex flex-col items-center justify-end h-full gap-8 mt-10">
 
-                <div className="flex flex-col items-center justify-end h-full gap-8 mt-10">
+                            <img src={game.background_image} alt={`${slug}'s image`} className="w-[90%] max-h-[110%]  object-cover rounded-tr-2xl rounded-tl-2xl lg:w-[50%]"/>
+                                    
+                        </div>
+                        
+                        <div className="w-full flex flex-col items-center justify-center text-center">
 
-                    <img src={game.background_image} alt={`${slug}'s image`} className="w-[90%] max-h-[110%]  object-cover rounded-tr-2xl rounded-tl-2xl"/>
-                            
+                            <div className="w-[90%] lg:w-[50%]">
+                                <InfoCard display={display} show={show}/>
+                            </div >
+
+                        </div>
+                    </div>    
+                        <div className="">
+                            {
+                                // screenshots.length &&
+                                <ImageSlider screenshots={screenshots}/>
+
+                            }
+                        </div>   
+
                 </div>
-                
-                <div className="w-full flex flex-col items-center justify-center text-center">
 
-                    <div className="w-[90%]">
-                        <InfoCard display={display} show={show}/>
-                    </div >
 
-                </div>
                 
             </div>
-
-            
-            <div className="z-0 relative">
-
-
-
-            {/* SCREENSHOT GALLERY */}
-            </div>
-                {/* <p className="text-white text-2xl">hwekfhd</p> */}
-                <div className="">
-                    {
-                        // screenshots.length &&
-                        <ImageSlider screenshots={screenshots}/>
-
-                    }
-                </div>
                 
-
+            <div className="lg:flex lg:items-start lg:justify-around lg:mt-20">
                 {/* RATINGS ↓ */}
-                <div className="mt-7 ml-5 mr-5">
+                <div className="mt0 ml-5 mr-5 lg:w-fit">
                     {/* THIS IS FOR THE "RATINGS HEADING AND THE RATING INFO" */}
                     <div className="flex items-center justify-between">
-                    <p className="text-white text-7xl font-semibold">Ratings</p>
-                    <div className="text-green-600 bg-transparent border-green-600 border-2 px-4 top-10 rounded-sm font-bold">
+                    <p className="text-white text-7xl font-semibold ">Ratings</p>
+                    <div className="text-green-600 bg-transparent border-green-600 border-2 px-4 top-10 rounded-sm font-bold lg:ml-10">
                         <p className="">
                             {
                             // {/* { game &&  */}
@@ -332,32 +326,38 @@ useEffect(() => {
 
 
                 {/* ABOUT ↓ */}
-                    <div className="ml-5 mr-5 mt-7">
+                    <div className="ml-5 mr-5 mt-7 lg:w-100">
                         <p className="text-white text-6xl font-bold">About</p>
                         <div className="mt-5">
                             <Description description={desc} />
                         </div>
-                        
-                    </div>
 
-                {/* GAME LINKS ↓ */}
-                    <div className="mt-10 ml-5 mr-5">
+                    </div>
+                              
+                               {/* GAME LINKS ↓ */}
+                    <div className="mt ml-5 mr-5 lg:w-fit lg:mt-30">
                         {
                             // stores &&
                              <GameStores stores={stores.results} />
                         }
                         
-                    </div>
+                    </div>      
+
+            </div>
+
+
 
                 
                 {/* GAME GENERAL INFO ↓ */}
-                    <div className="mt-10 ml-5 mr-5">
+                    <div className="mt-10 ml-5 mr-5 ">
                         <GeneralInfo display={details} show={showDetails} />
                     </div>  
 
                 {/* GAMES PART OF THE SERIES ↓*/}
-
+            <div className="lg:flex lg:items-center lg:flex-col">
                 {
+                    
+
                     showSeriesGames ? 
                         <button className="text-4xl text-center text-[#a3a3a3] mt-10  cursor-pointer font-bold border-none p-5 ml-2 mr-2 rounded-4xl underline" onClick={() =>setShowSeriesGames(!showSeriesGames)}>Hide games part of this series</button>
                         
@@ -379,14 +379,18 @@ useEffect(() => {
                                 </div>
                             ))
                             :
-                            <p className="text-[#b6b6b6] text-center mt-5 text-2xl font-bold ml-15 mr-15 bg-[#313131] rounded-2xl p-3">This game isn't a part of a series...Yet</p>                                                   
+                            <p className="text-[#b6b6b6] text-center mt-5 text-2xl font-bold ml-15 mr-15 bg-[#313131] rounded-2xl p-3 lg:w-fit">This game isn't a part of a series...Yet</p>                                                   
 
                             )
                         
                 }
+            </div >
+
             
                 {/* MORE GAMES FROM THE STUDIOS ↓ */}
-                <div className="mt-10 ml-5 mr-5 bg-[#1d1d1d]   p-10 rounded-4xl border-1 border-[#595858]">
+                <div className="lg:flex lg:flex-col lg:items-center">
+
+                <div className="mt-10 ml-5 mr-5 bg-[#1d1d1d]   p-10 rounded-4xl border-1 border-[#595858] lg:w-fit">
                     <p className="text-center text-5xl font-black text-white mb-5">More Games from</p>
                     
                     <div className="px-10 flex flex-wrap gap-10 mt-10 justify-center">
@@ -414,6 +418,8 @@ useEffect(() => {
                     }        
                     </div>
                 </div>   
+                </div>
+
 
 
                 {/* EMPTY DIV TO GIVE HEIGHT */}

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import useScrollDirection from "./useScrollDirection";
 
 
 function Navbar(){
+
+  const scrollDirection = useScrollDirection();
 
   const [isLoggedIn, setisLoggedIn] = useState(false);
 
@@ -18,8 +21,10 @@ function Navbar(){
   }
 
     return(<>
-        <nav className="w-[80%] bg-transparent shadow px-0 py-4  z-999 mx-auto backdrop-blur-sm rounded-2xl fixed  ml-[50%] transform -translate-x-1/2">
-  <div className="max-w-[100%] mx-auto flex items-center justify-around ">
+        <nav className={`w-[80%] bg-transparent shadow px-0 py-4 z-50 mx-auto backdrop-blur-sm rounded-2xl fixed top- ml-[50%] transform -translate-x-1/2 transition-transform duration-300 ${
+    scrollDirection === "down" ? "-translate-y-[200%]" : "translate-y-0"
+  }`}>
+  <div className="max-w-[100%] mx-auto flex items-center justify-between pl-5 pr-10 ">
     
       <Link to="/home">
           <div className="text-2xl font-bold text-white cursor-pointer ml-5">
@@ -29,7 +34,7 @@ function Navbar(){
 
 
 
-    <div className=" navbar-links hidden items-center justify-center md:flex space-x-12" >
+    <div className=" navbar-links hidden items-center justify-center md:flex space-x-12 fixed ml-[30%]" >
 
       <Link to="/home">
         <p>Home
@@ -53,7 +58,7 @@ function Navbar(){
     </div>
 
 
-    <div className="flex space-x-4 items-center gap-10">
+    <div className="flex  items-center gap-10">
       {
         (!searchToggle) &&
       <i className="fa fa-search text-white cursor-pointer" style={{ fontSize: "20px" }} onClick={() => setSearchToggle(!searchToggle)}></i>
@@ -65,7 +70,7 @@ function Navbar(){
       {       
         (searchToggle) && 
         <div className="flex gap-5 items-center">
-          <input type="text" onChange={(e) => setSearchValue(e.target.value)} className="bg-[#444444] rounded-md ml-5 text-white" onKeyDown={(e) => {
+          <input type="text" onChange={(e) => setSearchValue(e.target.value)} className="bg-[#444444] rounded-md ml-5 text-white w-[80%]" onKeyDown={(e) => {
             if (e.key === "Enter"){
               navigate(`/search/${searchValue}`);
             }

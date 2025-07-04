@@ -7,6 +7,8 @@ import GamePage from "./pages/GamePage";
 import Developers from "./pages/Developers";
 import Publishers from "./pages/Publishers";
 import GameSearch from "./components/GameSearch";
+import ScrollToTop from "./ScrollToTop";
+// import { BrowserRouter } from "react-router-dom";   
 
 
 function App() {
@@ -18,14 +20,20 @@ function App() {
                 <Navbar /> 
             </div>
             
-            <Routes>
-                <Route path="/" element={<LandingPage />}/>
-                <Route path="/home" element={<Home />}/>
-                <Route path="/game/:slug" element={<GamePage />}/>        
-                <Route path="/developers/:slug" element={<Developers />}/>
-                <Route path="/publishers/:slug" element={<Publishers />}/>
-                <Route path="/search/:slug" element={<GameSearch />} />
-            </Routes>
+            {/* <BrowserRouter> */}
+                <ScrollToTop />
+                <Routes>
+                    
+                    <Route path="/" element={<LandingPage />}/>
+                    <Route path="/home" element={<Home />}/>
+                    <Route path="/game/:slug" element={<GamePage />}/>        
+                    <Route path="/developers/:slug" element={<Developers />}/>
+                    <Route path="/publishers/:slug" element={<Publishers />}/>
+                    <Route path="/search/:slug" element={<GameSearch />} />
+                
+                </Routes>
+                
+            {/* </BrowserRouter> */}
         </>
     )
 }

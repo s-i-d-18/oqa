@@ -46,7 +46,7 @@ function Subreddits({ game, name }){
             (subreddit) && (subreddit.username != "") &&
         
             <a href={subreddit.url} target="__blank" rel="noopener noreferrer">
- (               <div className="bg-[#1d1d1d] mt-10 py-5 rounded-2xl">
+               <div className="bg-[#1d1d1d] mt-10 py-5 rounded-2xl ">
 
 
                     {/* LOGO AND USERNAME */}
@@ -81,7 +81,7 @@ function Subreddits({ game, name }){
                         {name}
                     </div>
 
-                </div>)
+                </div>
             </a>
       
 }
