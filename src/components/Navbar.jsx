@@ -24,11 +24,11 @@ function Navbar(){
         <nav className={`w-[80%] bg-transparent shadow px-0 py-4 z-50 mx-auto backdrop-blur-sm rounded-2xl fixed top- ml-[50%] transform -translate-x-1/2 transition-transform duration-300 ${
     scrollDirection === "down" ? "-translate-y-[200%]" : "translate-y-0"
   }`}>
-  <div className="max-w-[100%] mx-auto flex items-center justify-between pl-5 pr-10 ">
+  <div className="max-w-[100%] mx-auto flex items-center justify-between pl-2 pr-3 ">
     
       <Link to="/home">
-          <div className="text-2xl font-bold text-white cursor-pointer ml-5">
-        <img src="/logo.png" alt=""  className="h-10 rounded-md"/>
+          <div className="text-2xl font-bold text-white cursor-pointer ml-3">
+        <img src="/logo.png" alt=""  className="h-10 rounded-md min-h-10:"/>
     </div>
       </Link>
 
@@ -69,8 +69,8 @@ function Navbar(){
       
       {       
         (searchToggle) && 
-        <div className="flex gap-5 items-center">
-          <input type="text" onChange={(e) => setSearchValue(e.target.value)} className="bg-[#444444] rounded-md ml-5 text-white w-[65%] lg:w-[80%]" onKeyDown={(e) => {
+        <div className="flex gap-5 items-center ">
+          <input type="text" onChange={(e) => setSearchValue(e.target.value)} className="bg-[#444444] rounded-md ml-5 text-white w-[60%] lg:w-[80%]" onKeyDown={(e) => {
             if (e.key === "Enter"){
               navigate(`/search/${searchValue}`);
             }
