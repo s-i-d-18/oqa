@@ -366,7 +366,10 @@ useEffect(() => {
                         <button className="text-4xl text-center text-[#a3a3a3] mt-10  cursor-pointer font-bold border-none p-5 ml-2 mr-2 rounded-4xl underline" onClick={() =>setShowSeriesGames(!showSeriesGames)}>Show games part of this series</button>
                 }
 
-                {
+                
+                <div className="columns-1 lg:columns-4  ">
+
+                   {
                     showSeriesGames && 
                     (gameSeries.length ?
                             // <div className="mt-10 ml-5 mr-5">
@@ -374,7 +377,7 @@ useEffect(() => {
                             // </div> 
                             
                             gameSeries.map((game) => (
-                                <div className="columns-1 lg:columns-4 gap-10 ml-5 mr-5">
+                                <div className="gap-10 ml-5 mr-5 mt-10 break-inside-avoid">
                                     <GameCard displayGame={game} />
                                 </div>
                             ))
@@ -382,8 +385,10 @@ useEffect(() => {
                             <p className="text-[#b6b6b6] text-center mt-5 text-2xl font-bold ml-15 mr-15 bg-[#313131] rounded-2xl p-3 lg:w-fit">This game isn't a part of a series...Yet</p>                                                   
 
                             )
+                            }
+                </div>
                         
-                }
+                
             </div >
 
             
